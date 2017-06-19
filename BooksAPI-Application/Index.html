@@ -90,7 +90,8 @@
         }
 
         function formatItem(item) {
-            return item.Title + '|' + '$' + item.Price + '|' + item.Genre + '|' + item.Author + '|' + item.PublishDate + "|" + item.Description;
+            // Formatting item, check model for use of more information about a book
+            return item.Title + ' - Price: ' + '$' + item.Price + ' - Genre: ' + item.Genre;
         }
 
     </script>
