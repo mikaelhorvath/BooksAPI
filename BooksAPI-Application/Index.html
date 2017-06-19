@@ -20,7 +20,7 @@
 
             <form class="w3-container">
                 <br />
-                <input class="w3-input" type="text" placeholder="Input name of book.." id="prodId"><br />
+                <input class="w3-input" type="text" placeholder="Input name of book.." id="bookTitle"><br />
                 <input type="button" class="w3-btn w3-blue-grey" value="Search" onclick="find();" />
                 <input type="button" class="w3-btn w3-blue-grey" value="Show all books!" onclick="findAll();" /><br />
             </form>
@@ -28,7 +28,7 @@
         </div>
 
         <div>
-            <ul id="products" />
+            <ul id="books" />
         </div>
     </div>
 
@@ -38,16 +38,16 @@
         var uri = 'api/books';
 
         function errorHandler(e) {
-            $('<li>', { text: e }).appendTo($('#products'));
+            $('<li>', { text: e }).appendTo($('#books'));
         }
 
         $(document).ready(function () {
-            $('<li>', { text: 'Welcome, type search to find awesome books!' }).appendTo($('#products'));
+            $('<li>', { text: 'Welcome, type search to find awesome books!' }).appendTo($('#books'));
         });
 
         function findAll() {
             //Clearing the div
-            $('#products').empty();
+            $('#books').empty();
 
             // Send an AJAX request
             $.getJSON(uri)
@@ -55,7 +55,7 @@
                   // On success, 'data' contains a list of books.
                   $.each(data, function (key, item) {
                       // Add a list item for the book.
-                      $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                      $('<li>', { text: formatItem(item) }).appendTo($('#books'));
                   });
               });
         }
@@ -63,9 +63,9 @@
 
         function find() {
             //Clearing the div
-            $('#products').empty();
+            $('#books').empty();
             // Fetching the input
-            var id = $('#prodId').val();
+            var id = $('#bookTitle').val();
             // Handling the input by formatting the text
             id = id.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                 return letter.toUpperCase();
@@ -83,7 +83,7 @@
                       // On success, 'data' contains a list of books.
                       $.each(data, function (key, item) {
                           // Add a list item for the book.
-                          $('<li>', { text: formatItem(item) }).appendTo($('#products'));
+                          $('<li>', { text: formatItem(item) }).appendTo($('#books'));
                       });
                   });
             }
