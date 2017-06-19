@@ -6,7 +6,7 @@ using System.Web;
 namespace BooksAPI_Application.Models
 {
     /// <summary>
-    /// A model for our Books
+    /// Model user for Books. This class contains set/get methods
     /// Written by: Mikael Horvath
     /// Date: 2017-06-19
     /// </summary>
