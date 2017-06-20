@@ -65,17 +65,17 @@
             //Clearing the div
             $('#books').empty();
             // Fetching the input
-            var id = $('#bookTitle').val();
+            var title = $('#bookTitle').val();
             // Handling the input by formatting the text
-            id = id.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+            title = title.toLowerCase().replace(/\b[a-z]/g, function (letter) {
                 return letter.toUpperCase();
             });
             // Checking whether there is a input or not
-            if (id.length == 0) {
+            if (title.length == 0) {
                 errorHandler('Error: You must input a search value!');
             } else {
                 // Send an AJAX request
-                $.getJSON(uri + '/' + id)
+                $.getJSON(uri + '/' + title)
                   .done(function (data) {
                       if (!$.trim(data)) {
                           errorHandler('Error: Could not find any book matching your search criteria!');
