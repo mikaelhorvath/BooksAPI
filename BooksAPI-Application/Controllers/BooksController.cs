@@ -31,7 +31,7 @@ namespace BooksAPI_Application.Controllers
                 book.Genre = element.Element("genre").Value;
                 book.Author = element.Element("author").Value;
                 book.Price = element.Element("price").Value;
-                book.PublishDate = element.Element("publish_date").Value;
+                book.PublishDate = System.DateTime.Parse(element.Element("publish_date").Value);
                 book.Description = element.Element("description").Value;
                 b.Add(book);
             }
@@ -58,7 +58,7 @@ namespace BooksAPI_Application.Controllers
                 book.Genre = element.Element("genre").Value;
                 book.Author = element.Element("author").Value;
                 book.Price = element.Element("price").Value;
-                book.PublishDate = element.Element("publish_date").Value;
+                book.PublishDate = System.DateTime.Parse(element.Element("publish_date").Value);
                 book.Description = element.Element("description").Value;
                 b.Add(book);
             }
